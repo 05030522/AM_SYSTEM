@@ -38,4 +38,14 @@ public class TempController {
 //        return teamService.getTeam();
 //    }
 
+    @PostMapping("/start/work")
+    public void startWork(){
+        staffService.startWork();
+    }
+
+    @PostMapping("/start/end")
+    public void endWork(){
+        staffService.endWork();
+    }
+
 }

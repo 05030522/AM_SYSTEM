@@ -19,4 +19,10 @@ public class StaffService {
         staffRepository.save(new Staff(request.getName(), request.getBirthday(),
                 request.getWorkStartDay(), request.getRole()));
     }
+
+    @Transactional
+    public void startWork(){}
+
+    @Transactional
+    public void endWork(){}
 }
