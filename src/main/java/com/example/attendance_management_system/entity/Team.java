@@ -13,6 +13,12 @@ public class Team {
 //    private enum role;
     private Long memberCount;
 
+    private String manager;
+
+    public String getManager() {
+        return manager;
+    }
+
     public Long getMemberCount() {
         return memberCount;
     }

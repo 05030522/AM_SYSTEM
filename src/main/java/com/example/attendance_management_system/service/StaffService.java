@@ -1,10 +1,14 @@
 package com.example.attendance_management_system.service;
 
 import com.example.attendance_management_system.dto.reqeuet.StaffSaveRequest;
+import com.example.attendance_management_system.dto.response.StaffResponse;
 import com.example.attendance_management_system.entity.Staff;
 import com.example.attendance_management_system.repository.StaffRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class StaffService {
@@ -25,4 +29,12 @@ public class StaffService {
 
     @Transactional
     public void endWork(){}
+
+    @Transactional(readOnly = true)
+    public List<StaffResponse> getStaff(){
+        return staffRepository.findAll()
+                .stream()
+                .map(StaffResponse::new)
+                .collect(Collectors.toList());
+    }
 }

@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class TeamService {
@@ -24,12 +23,12 @@ public class TeamService {
         teamRepository.save(new Team(request.getName()));
     }
 
-//    @Transactional(readOnly = true)
-//    public List<Team> getTeam(){
-//        return teamRepository
-//                .findAll()
-//                .stream()
-//                .map(TeamResponse::new)
-//                .collect(Collectors.toList());
-//    }
+    @Transactional(readOnly = true)
+    public List<TeamResponse> getTeam(){
+        return teamRepository
+                .findAll()
+                .stream()
+                .map(TeamResponse::new)
+                .collect(Collectors.toList());
+    }
 }

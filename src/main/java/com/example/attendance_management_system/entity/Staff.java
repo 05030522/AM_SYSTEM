@@ -47,13 +47,14 @@ public class Staff {
     }
 
     public Staff(String name, Date birthday, Date workStartDay, javax.management.relation.Role role) {
+        if (name == null || name.isBlank()){
+            throw new IllegalArgumentException(String.format("잘못된 name(%s)이 들어왔습니다", name));
+        }
         this.name = name;
         this.birthday = birthday;
         this.workStartDay = workStartDay;
         Role = role;
     }
 
-    protected Staff(){
-
-    }
+    protected Staff(){}
 }
