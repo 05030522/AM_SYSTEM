@@ -19,7 +19,7 @@ public class StaffService {
     @Transactional
     public void saveStaff(StaffSaveRequest request){
         staffRepository.save(new Staff(request.getName(), request.getBirthday(),
-                request.getWorkStartDay()));
+                request.getWorkStartDay(), request.getRole()));
     }
 
     @Transactional

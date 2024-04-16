@@ -6,6 +6,8 @@ import com.example.attendance_management_system.dto.response.StaffResponse;
 import com.example.attendance_management_system.dto.response.TeamResponse;
 import com.example.attendance_management_system.service.StaffService;
 import com.example.attendance_management_system.service.TeamService;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,17 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class TempController {
     private final StaffService staffService;
     private final TeamService teamService;
 
-    public TempController(StaffService staffService, TeamService teamService) {
-        this.staffService = staffService;
-        this.teamService = teamService;
-    }
-
     /***********************************************************
-     * 팀 저장 기능
+     * 팀 등록 기능
      * POST (/save/team) 를 사용하여 팀의 정보를 DB에 저장합니다.
      ***********************************************************/
     @PostMapping("/save/team")
@@ -33,7 +31,7 @@ public class TempController {
     }
 
     /***********************************************************
-     * 직원 저장 기능
+     * 직원 등록 기능
      * POST (/save/staff) 를 사용하여 직원의 정보를 DB에 저장합니다.
      ************************************************************/
     @PostMapping("/save/staff")
