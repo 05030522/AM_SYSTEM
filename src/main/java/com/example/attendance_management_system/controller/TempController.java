@@ -15,7 +15,6 @@ import java.util.List;
 
 @RestController
 public class TempController {
-
     private final StaffService staffService;
     private final TeamService teamService;
 

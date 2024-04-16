@@ -20,7 +20,7 @@ public class Staff {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private Role Role;
+    private Role role;
 
     public Long getId() {
         return id;
@@ -42,18 +42,18 @@ public class Staff {
         return workStartDay;
     }
 
-    public javax.management.relation.Role getRole() {
-        return Role;
+    public Role getRole() {
+        return role;
     }
 
-    public Staff(String name, Date birthday, Date workStartDay, javax.management.relation.Role role) {
+    public Staff(String name, Date birthday, Date workStartDay, Role role) {
         if (name == null || name.isBlank()){
             throw new IllegalArgumentException(String.format("잘못된 name(%s)이 들어왔습니다", name));
         }
         this.name = name;
         this.birthday = birthday;
         this.workStartDay = workStartDay;
-        Role = role;
+        this.role = role;
     }
 
     protected Staff(){}
