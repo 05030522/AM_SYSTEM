@@ -1,11 +1,14 @@
 package com.example.attendance_management_system.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import javax.management.relation.Role;
 import java.util.Date;
 
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Staff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,15 +49,14 @@ public class Staff {
         return role;
     }
 
-    public Staff(String name, Date birthday, Date workStartDay, Role role) {
+    public Staff(String name, Date birthday, Date workStartDay) {
         if (name == null || name.isBlank()){
             throw new IllegalArgumentException(String.format("잘못된 name(%s)이 들어왔습니다", name));
         }
         this.name = name;
         this.birthday = birthday;
         this.workStartDay = workStartDay;
-        this.role = role;
+//        this.role = role;
     }
 
-    protected Staff(){}
 }

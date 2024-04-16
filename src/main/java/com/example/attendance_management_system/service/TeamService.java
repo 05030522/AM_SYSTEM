@@ -4,6 +4,7 @@ import com.example.attendance_management_system.dto.reqeuet.TeamSaveRequest;
 import com.example.attendance_management_system.dto.response.TeamResponse;
 import com.example.attendance_management_system.entity.Team;
 import com.example.attendance_management_system.repository.TeamRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,12 +12,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class TeamService {
     private final TeamRepository teamRepository;
-
-    public TeamService(TeamRepository teamRepository) {
-        this.teamRepository = teamRepository;
-    }
 
     @Transactional
     public void saveTeam(TeamSaveRequest request){

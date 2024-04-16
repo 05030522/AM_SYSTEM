@@ -1,8 +1,11 @@
 package com.example.attendance_management_system.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 @Entity
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,7 +13,7 @@ public class Team {
     @Column(nullable = false)
     private String name;
 
-//    private enum role;
+//  private enum role;
     private Long memberCount;
 
     private String manager;
@@ -35,5 +38,4 @@ public class Team {
         this.name = name;
     }
 
-    protected Team(){}
 }
